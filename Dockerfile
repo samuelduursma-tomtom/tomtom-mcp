@@ -1,8 +1,5 @@
 FROM docker.io/ubuntu:22.04
 
-ARG VERSION
-
-LABEL version=${VERSION}
 LABEL description="TomTom MCP Server"
 
 # Set working directory

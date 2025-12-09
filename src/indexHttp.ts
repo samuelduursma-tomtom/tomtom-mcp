@@ -21,7 +21,7 @@ import { randomUUID } from "node:crypto";
 import express, { Request, Response } from "express";
 import cors from "cors";
 import { runWithSessionContext, setHttpMode } from "./services/base/tomtomClient";
-import { VERSION } from "./version";
+import { readVersion } from "./utils/readVersion";
 
 // ============================================================================
 // Server Configuration
@@ -149,13 +149,12 @@ async function startHttpServer(): Promise<void> {
     res.status(405).set("Allow", "POST").send("Method Not Allowed");
   });
 
-  // Health check
   app.get("/health", (req: Request, res: Response) => {
     res.json({
       status: "ok",
       backend: MAPS_BACKEND,
       mode: "http",
-      version: VERSION
+      version: readVersion()
     });
   });
 

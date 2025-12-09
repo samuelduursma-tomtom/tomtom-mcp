@@ -93,7 +93,7 @@ jobs:
           # Source image with SHA tag
           SOURCE_IMAGE="${{ env.REGISTRY }}/${REPO_NAME_LOWER}:${{ steps.get-sha.outputs.main_sha }}"
           # Target image with release tag
-          TARGET_IMAGE="${{ env.REGISTRY }}/${REPO_NAME_LOWER}:${{ needs.get-version.outputs.version }}"
+          TARGET_IMAGE="${{ env.REGISTRY }}/${REPO_NAME_LOWER}:v${{ needs.get-version.outputs.version }}"
           # Latest tag
           LATEST_IMAGE="${{ env.REGISTRY }}/${REPO_NAME_LOWER}:latest"
 
